@@ -34,16 +34,6 @@ public class MainActivity extends AppCompatActivity {
                 String isian_nama_belakang = edNamaBelakang.getText().toString();
                 String isian_umur = edUmur.getText().toString();
 
-                if(umur <=10){
-                    Status.text = "ANAK"
-                } else if (umur >=10 && <=20) {
-                    Status.text = "REMAJA"
-                } else if (umur >=20 && <=40) {
-                    Status.text = "DEWASA"
-                } else {
-                    Status.text = "TUA"
-                }
-
                 if(isian_nama_depan.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Isian masih kosong", Toast.LENGTH_SHORT).show();
                 }else{
@@ -54,6 +44,16 @@ public class MainActivity extends AppCompatActivity {
                     edNamaBelakang.setText("");
                     intent_list.putStringArrayListExtra("daftar_nama", daftar_nama);
                     startActivity(intent_list);
+                }
+
+                if(umur <=10){
+                    Status.text = "ANAK"
+                } else if (umur >=10 && <=20) {
+                    Status.text = "REMAJA"
+                } else if (umur >=20 && <=40) {
+                    Status.text = "DEWASA"
+                } else {
+                    Status.text = "TUA"
                 }
 
             }

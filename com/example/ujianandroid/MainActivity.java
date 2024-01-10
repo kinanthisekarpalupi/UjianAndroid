@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText edNamaDepan = (EditText) findViewById(R.id.edNamaDepan);
         EditText edNamaBelakang = (EditText) findViewById(R.id.edNamaBelakang);
+        EditText edUmur = (EditText) findViewById(R.id.edUmur) ;
         Button btnSimpan = (Button) findViewById(R.id.btnSimpan);
 
         ArrayList<String> daftar_nama = new ArrayList<>();
@@ -31,6 +32,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String isian_nama_depan = edNamaDepan.getText().toString();
                 String isian_nama_belakang = edNamaBelakang.getText().toString();
+                String isian_umur = edUmur.getText().toString();
+
+                if(umur <=10){
+                    Status.text = "ANAK"
+                } else if (umur >=10 && <=20) {
+                    Status.text = "REMAJA"
+                } else if (umur >=20 && <=40) {
+                    Status.text = "DEWASA"
+                } else {
+                    Status.text = "TUA"
+                }
 
                 if(isian_nama_depan.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Isian masih kosong", Toast.LENGTH_SHORT).show();
@@ -43,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     intent_list.putStringArrayListExtra("daftar_nama", daftar_nama);
                     startActivity(intent_list);
                 }
+
             }
         });
     }
